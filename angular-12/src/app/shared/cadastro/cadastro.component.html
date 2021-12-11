@@ -1,0 +1,44 @@
+<div class="card">
+    <div class="card-body">
+        <div class="d-md-flex align-items-center justify-content-center">
+            <h4 class="card-title">Cadastro</h4>
+        </div>
+        <div style="height:300px;" class="m-t-20">
+            <form [formGroup]="formCadastro" (ngSubmit)="cadastrar()" style="display: flex; flex-direction: column; align-items: center;" id="cadastroForm">
+                <div style="margin: 10px; display: flex;" class="form-group">
+                    <input formControlName="nome" class="form-control" type="text" placeholder="Informe o nome">
+                    <input formControlName="cpfCnpj" class="form-control" type="text" placeholder="Informe o cpfCnpj">
+                    <input formControlName="contato" class="form-control" type="text" placeholder="Informe o Contato">
+                </div>
+
+                 <div style="margin: 10px; display: flex;">
+                    <input formControlName="cep" class="form-control" type="text" placeholder="Informe o CEP">
+                    <input formControlName="endereco" class="form-control" type="text" placeholder="Informe o Endereço">
+                    <input formControlName="bairro" class="form-control" type="text" placeholder="Informe o Bairro">
+                    
+                </div>
+
+                <div style="margin: 10px; display: flex;">
+                    <input formControlName="cidade" class="form-control" type="text" placeholder="Informe o Cidade">
+                    <select class="form-control" formControlName="estado">
+                        <option value="" disabled selected>UF</option>
+                        <option value="{{estado.valor}}" *ngFor="let estado of estados">{{ estado.name }}</option>
+                    </select>
+                    <select class="form-control" formControlName="tpUsuario" id="tpUsuario">
+                        <option value="" disabled selected>Tipo Usuário</option>
+                        <option value="{{tpUsuario.valor}}" *ngFor="let tpUsuario of tpUsuarios">{{ tpUsuario.name }}</option>
+                    </select> 
+
+                </div>
+
+                <div style=" margin: 10px;  display: flex;;">
+                    <input formControlName="email" class="form-control" type="text" placeholder="Informe o email">
+                    <input formControlName="password" class="form-control" type="text" placeholder="Senha">
+                    <input formControlName="confirmacao" class="form-control" type="text" placeholder="Confirmação de senha">
+                </div>
+                
+                <button type="submit" class="btn">Cadastrar</button> 
+            </form>
+        </div>
+    </div>
+</div>

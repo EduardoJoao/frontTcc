@@ -1,0 +1,24 @@
+<div class="card">
+    <div class="card-body">
+        <div *ngIf="retornoOngs" class="d-md-flex align-items-center">
+                      
+        </div>
+        <div *ngIf="retornoOngs" class="m-t-20">
+            <div style="height: 100px;" *ngFor="let ong of retornoOngs">
+                nome: {{ong.nome}} 
+                cpfcnpj: {{ong.cpfcnpj}}
+                contato: {{ong.contato}}
+                estado: {{ong.estado}}
+                cidade: {{ong.cidade}}
+                cep: {{ong.cep}}
+                bairro: {{ong.bairro}}
+                endereco: {{ong.endereco}}
+            </div>
+             
+            <!-- <canvas baseChart height="130" [datasets]="lineChartData" [labels]="lineChartLabels"
+                [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend"
+                [chartType]="lineChartType">
+            </canvas> -->
+        </div>
+    </div>
+</div>

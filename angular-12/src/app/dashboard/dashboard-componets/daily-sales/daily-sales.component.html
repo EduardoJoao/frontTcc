@@ -1,0 +1,91 @@
+<div class="card">
+    <div class="card-body">
+        <div style="display: flex; justify-content: space-between;">
+            <div style="display: flex;">
+                <form style="display: flex; align-items: center;" [formGroup]="formLares">
+                    <a>
+                        <span>
+                            Selecione a UF:
+                        </span>
+                        <select formControlName="estado" id="uf">
+                            <option value="" disabled selected>UF</option>
+                            <option value="{{estado.valor}}" *ngFor="let estado of estados">{{ estado.name }}</option>
+                        </select>
+                    </a>
+                    <a style="display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding-left: 10px;">
+                        <span style="width: 70%;">
+                            Selecione a Cidade:
+                        </span>
+                        <input formControlName="cidade" class="form-control" type="text" placeholder="Informe o Cidade">
+                    </a>
+                </form>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <mat-slide-toggle color="danger" [(ngModel)]="checked"> Deseja verificar o mapa com a localização? {{checked}} </mat-slide-toggle>
+
+            </div>
+            <div style="display: flex;">
+                <div>
+                    <a class="btn textbuton ml-3" (click)="pesquisarItemsBtn('ong')">Procurar por Ongs</a>
+                </div>
+                <div>
+                    <a class="btn textbuton ml-3" (click)="pesquisarItemsBtn('lar')">Procurar por Lares Temporários</a>
+                </div>
+            </div>
+                        
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!checked && retornoOngs" class="card">
+    <div class="card-body">
+        
+        <div class="m-t-20">
+            <div style="flex-direction: column;display: flex;" *ngFor="let ong of retornoOngs">
+                <div class="card bg-light mb-3">
+                    <div class="card-header">Informações</div>
+                    <div class="card-body">
+                        <div class="card-body__display">
+                            <div class="card-body__displayVariabled"><b>Nome:</b> <div class="card-body__displayVariabled_details">{{ong.nome}}</div> </div>
+                            <div class="card-body__displayVariabled"><b>CpfCnpj:</b> <div class="card-body__displayVariabled_details">{{ong.cpfcnpj}}</div> </div>
+                        </div>
+                      
+                        <div class="card-body__displayVar"><b>Endereco:</b> <div class="card-body__displayVariabled_details">{{ong.endereco}}</div> </div>
+                        <div class="card-body__display">
+                            <div class="card-body__displayVariabled"><b>Cep:</b> <div class="card-body__displayVariabled_details">{{ong.cep}}</div> </div>
+                            <div class="card-body__displayVariabled"><b>Bairro:</b> <div class="card-body__displayVariabled_details">{{ong.bairro}}</div> </div>
+                        </div>
+
+                        <div class="card-body__display">
+                            <div class="card-body__displayVariabled"><b>Estado:</b> <div class="card-body__displayVariabled_details">{{ong.estado}}</div> </div>
+                            <div class="card-body__displayVariabled"><b>Cidade:</b> <div class="card-body__displayVariabled_details">{{ong.cidade}}</div> </div>
+                        </div>
+
+                        <div class="card-body__display">
+                            <div class="card-body__displayVariabled"><b>Estabelecimento:</b> <div class="card-body__displayVariabled_details">{{ong.tpUsuario}}</div> </div>
+                            <div class="card-body__displayVariabled"><b>Contato:</b> <div class="card-body__displayVariabled_details">{{ong.contato}}</div> </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+
+            
+             
+            <!-- <canvas baseChart height="130" [datasets]="lineChartData" [labels]="lineChartLabels"
+                [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend"
+                [chartType]="lineChartType">
+            </canvas> -->
+        </div>
+    </div>
+</div>
+
+<div  [ngClass] = "{'map_transition_false': !checked, 'map_transition_true': checked }" class="card">
+    <div class="card-body">
+        <div id="map"></div>
+    </div>
+</div>

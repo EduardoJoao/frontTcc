@@ -1,0 +1,37 @@
+.textbuton{
+    color: black !important;
+}
+
+.card-body__display{
+    display: flex; 
+    flex-direction: row;
+}
+
+.card-body__displayVariabled{
+    margin: 0 1% 1% 1%;
+    display: flex;
+}
+
+.card-body__displayVariabled_details{
+    margin-left: 10px;
+}
+
+.card-body__displayVar{
+    display: flex; 
+    flex-direction: row;
+    margin: 0 1% 1% 1%;
+}
+
+#map{
+    height: 60vh;
+    width: 80vh;
+    margin: auto;
+}
+
+.map_transition_false{
+    visibility: hidden;
+}
+
+.map_transition_true{
+    visibility: visible;
+}
